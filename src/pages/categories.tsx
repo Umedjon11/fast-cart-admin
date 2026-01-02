@@ -47,12 +47,13 @@ const Categories = () => {
     }
   })
 
-  const SetImage = (e: any) => {
+  const SetaImage = (e: any) => {
     const image = e.target.files[0]
     const reader = new FileReader
     reader.readAsDataURL(image)
     reader.onload = () => {
-      setImage(reader.result + "")
+      const img =reader.result
+      setImage(img + "")
     }
     setFieldValue("categoryImage", image)
   }
@@ -78,8 +79,11 @@ const Categories = () => {
           </DialogContentText>
           <form onSubmit={handleSubmit} className="flex flex-col gap-[2vh]" id="subscription-form">
             <img src={image} />
-            <input type="file" onChange={(e: any) => setImage(e)} />
+            <input type="file" onChange={SetaImage} />
             <TextField
+              name="categoryName"
+              onChange={handleChange}
+              value={values.categoryName}
               autoFocus
               margin="dense"
               label="Category name"
