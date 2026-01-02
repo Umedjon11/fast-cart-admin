@@ -27,5 +27,26 @@ export const useCategory = create((set, get: any) => ({
         } catch (error: any) {
             toast.error(error.response.data.errors+"!")
         }
+<<<<<<< HEAD
+=======
+    },
+    EditCategory: async (cat: FormData) => {
+        try {
+            await Axios.put("/Category/update-category", cat)
+            toast.success("Successfuly Edited!")
+            get().GetCategories()
+        } catch (error: any) {
+            toast.error(error.response.data.errors+"!")
+        }
+    },
+    DeleteCategory: async (id: number) => {
+        try {
+            await Axios.delete(`/Category/delete-category?id=${id}`)
+            get().GetCategories()
+            toast.success("Deleted successfuly!")
+        } catch (error: any) {
+            toast.error(error.response.errors+"!")
+        }
+>>>>>>> 32700814f74d5c32cec5901f5b5180b96338e46b
     }
 }))
