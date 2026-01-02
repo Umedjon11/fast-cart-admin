@@ -5,7 +5,9 @@ import CardImg2 from "../assets/iconly-glass-discount.svg.png";
 
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
 import { LineChart } from "@mui/x-charts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { GetToken } from "../../utils/axios";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
   const [showInteractionArea, setShowInteractionArea] = useState(false);
@@ -37,6 +39,14 @@ const Dashboard = () => {
       },
     ],
   };
+
+  const token = GetToken()
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (token && token.length < 200 || !token) {
+      navigate("/")
+    }
+  })
 
   return (
     <div className="w-full p-[24px]">
