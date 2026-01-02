@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<CircularProgress className="m-[30vh_44%]" size={200} />}>
+      <Suspense fallback={<CircularProgress className="m-[30vh_43%]" size={200} />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Login />} />
