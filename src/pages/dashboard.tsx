@@ -4,7 +4,7 @@ import CardImg4 from "../assets/div.MuiBox-root (2).png";
 import CardImg2 from "../assets/iconly-glass-discount.svg.png";
 
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
-import { LineChart } from "@mui/x-charts";
+import { LineChart, type LineChartProps } from "@mui/x-charts";
 import { useEffect, useState } from "react";
 import { GetToken } from "../../utils/axios";
 import { useNavigate } from "react-router";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 const Dashboard = () => {
   const [showInteractionArea, setShowInteractionArea] = useState(false);
 
-  const settings = {
+  const settings: LineChartProps = {
     height: 300,
     series: [
       {
@@ -21,7 +21,7 @@ const Dashboard = () => {
     ],
     xAxis: [
       {
-        scaleType: "point",
+        scaleType: 'point',
         data: [
           "Jan",
           "Feb",
