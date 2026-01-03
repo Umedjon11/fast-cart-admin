@@ -33,7 +33,7 @@ const Layout = () => {
       {location.pathname == "/" && (<Outlet />)}
       {location.pathname != "/" && (
         <div className="flex flex-col">
-          <header className="bg-[#1C2536] text-white p-[2vh_3%] w-full flex justify-between">
+          <header className="bg-[#1C2536] fixed text-white p-[2vh_3%] w-full flex justify-between">
             <div className="flex gap-28 items-center">
               <img className="w-41.5 h-11" src={Logo} />
               <div className="flex gap-4 items-center">
@@ -75,14 +75,14 @@ const Layout = () => {
               </Menu>
             </div>
           </header>
-          <main className="flex justify-between">
-            <section className="w-[20%] p-[5vh_2%] min-h-[90vh] text-white bg-[#1C2536] flex flex-col gap-[2vh]">
+          <main className="flex justify-between mt-[10vh]">
+            <section className="w-[20%] p-[5vh_2%] h-[90vh] fixed text-white bg-[#1C2536] flex flex-col gap-[2vh]">
               <Link to="/dashboard" className={location.pathname == "/dashboard" ? "flex items-center gap-4 text-[#5A607F] p-[2vh_20px] bg-white rounded-md" : "hover:bg-white hover:text-[#5A607F] hover:transition-all hover:duration-700 flex items-center gap-4 p-[2vh_20px] rounded-md"}><Home /> Dashboard</Link>
               <Link to="/users" className={location.pathname == "/users" ? "flex items-center gap-4 text-[#5A607F] p-[2vh_20px] bg-white rounded-md" : "hover:bg-white hover:text-[#5A607F] hover:transition-all hover:duration-700 flex items-center gap-4 p-[2vh_20px] rounded-md"}><List /> Users</Link>
               <Link to="/products" className={location.pathname == "/products" || location.pathname == "/detailproduct" ? "flex items-center gap-4 text-[#5A607F] p-[2vh_20px] bg-white rounded-md" : "hover:bg-white hover:text-[#5A607F] hover:transition-all hover:duration-700 flex items-center gap-4 p-[2vh_20px] rounded-md"}><Tag /> Products</Link>
               <Link to="/other" className={location.pathname == "/other" || location.pathname == "/other/brands" || location.pathname == "/other/subcategory" ? "flex items-center gap-4 text-[#5A607F] p-[2vh_20px] bg-white rounded-md" : "hover:bg-white hover:text-[#5A607F] hover:transition-all hover:duration-700 flex items-center gap-4 p-[2vh_20px] rounded-md"}><Folder /> Other</Link>
             </section>
-            <section className="w-[78%] pr-[2%] pb-[5vh] pt-[5vh]">
+            <section className="w-[78%] ml-[22%] pr-[2%] pb-[5vh] pt-[5vh]">
               <Outlet />
             </section>
           </main>
