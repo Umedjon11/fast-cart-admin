@@ -8,7 +8,7 @@ const Users = () => {
 
   const [filter, setFilter] = useState('All');
   const navigate = useNavigate()
-  const { usersList, GetUsers, isLoading } = useUsers((state: any) => state)
+  const { usersList, GetUsers, isLoading, AddRole, RemoveRole } = useUsers((state: any) => state)
 
   const token = GetToken()
   const [Search, setSearch] = useState("")
@@ -60,6 +60,7 @@ const Users = () => {
             <th className="text-start pb-[2vh]">Email</th>
             <th className="text-start pb-[2vh]">Phone number</th>
             <th className="text-start pb-[2vh]">Dob</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -73,6 +74,7 @@ const Users = () => {
                 <td>{user.email ? user.email : "---"}</td>
                 <td>{user.phoneNumber ? user.phoneNumber : "---"}</td>
                 <td>{user.dob}</td>
+                <td>{user.userRoles.some((role: any) => role.id == "c075589d-649e-4cbc-8e79-ddf54d81f7a5") ? (<button onClick={() => RemoveRole(user.userId)} className="bg-[#ff00003b] text-[red] p-[1vh_20px] rounded-md cursor-pointer">- role</button>) : (<button onClick={() => AddRole(user.userId)} className="bg-[#00ff002e] cursor-pointer text-[lime] p-[1vh_20px] rounded-md">+ role</button>)}</td>
               </tr>
             })
           }
